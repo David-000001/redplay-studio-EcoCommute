@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:um_foodloop/src/app.dart';
 import 'package:um_foodloop/src/auth/auth_repository.dart';
