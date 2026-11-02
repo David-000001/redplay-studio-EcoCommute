@@ -15,7 +15,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('Status: Not implemented'), findsOneWidget);
-    expect(find.text('Authentication & Roles'), findsOneWidget);
+    expect(find.text('Authentication & Roles'), findsNWidgets(2));
 
     await tester.pageBack();
     await tester.pumpAndSettle();
@@ -24,6 +24,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.textContaining('Status: Not implemented'), findsOneWidget);
-    expect(find.text('Surplus Listings'), findsOneWidget);
+    expect(find.text('Surplus Listings'), findsNWidgets(2));
   });
 }
