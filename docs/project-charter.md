@@ -2,7 +2,7 @@
 
 **Team:** RedPlay Studio · Tutorial Group 9 · WIA2007 · Semester 1 2026/2027
 **Leader:** Avijit Chandra Dey
-**Status:** Proposed; SDG 13.3 and stakeholder access require lecturer/team confirmation.
+**Status:** Kickoff-stage decisions reported complete by group leader on 2 Nov 2026. Lecturer acceptance of SDG 13.3 and member role confirmation are *leader-reported*; documentary evidence and full meeting minutes have not yet been attached. Stakeholder/vendor permission remains unconfirmed.
 
 ## Problem and opportunity
 Campus vendors may have safe, unsold prepared foods. Whether, where and how much is discarded at UM must be established through field observation and interviews. FoodLoop proposes collection and climate-awareness features to reduce avoidable food disposal and support climate literacy.
@@ -28,19 +28,19 @@ Prototype, test and demonstrate a UM-relevant mobile app that helps participatin
 **Out for MVP:** Payments, food delivery, nutritional/food safety certification by AI, production-wide vendor deployment, precise measurement of avoided lifecycle emissions, standalone web portal.
 
 ## Assumptions/dependencies
-- Lecturer accepts the SDG 13.3 framing.
+- Lecturer acceptance of the SDG 13.3 framing reported by group leader (2 Nov 2026); written approval record to be attached when available.
 - Participating vendors can be engaged; no vendor partnership is yet confirmed.
 - Stack proposed: Flutter + Firebase, subject to team and lecturer approval.
 - Real user data and institution branding handled only with required permissions.
 
-## Roles (proposed, pending confirmation)
+## Roles (confirmed by group leader; acceptance records pending attachment)
 Avijit — lead/integration; Maliha — UX/student discovery; HAN YUNUO — vendor flows; ZHOU RUILIN — backend/data; Riptanto — reservation/collection; Rasha — notifications/testing. All members code and test.
 
 ## Milestones
 Kickoff/approval: Nov 2026; architecture and foundation: 2–15 Nov; core app: 16–29 Nov; integration: 30 Nov–13 Dec; testing and documentation: 14–27 Dec; recorded demo due **3 Jan 2027 12 PM**; final report due **10 Jan 2027 12 PM**.
 
 ## Risks and controls
-- **SDG fit:** Obtain written lecturer approval and demonstrate climate-literacy outcome.
+- **SDG fit:** Preserve lecturer approval correspondence as evidence; demonstrate climate-literacy outcome.
 - **Food safety:** Vendor confirmation and pickup limits; no AI safety assurance.
 - **Data privacy:** Minimal personal data, secure permissions and aggregation.
 - **Inflated impact claims:** Publish carbon method, data sources and uncertainties.
@@ -48,4 +48,4 @@ Kickoff/approval: Nov 2026; architecture and foundation: 2–15 Nov; core app: 1
 - **Late integration:** Weekly reviews, pull requests and milestone demos.
 
 ## Approval
-Draft prepared for team review. Final scope, roles and targets require recorded team agreement and lecturer feedback.
+Group leader reports SDG 13.3 approval, kickoff completion, and acceptance of the six workstream roles on 2 Nov 2026. Actual meeting date, participant confirmation record, and lecturer approval correspondence have not been supplied. App scope, backend choice and vendor participation remain subject to explicit decisions and validation.
