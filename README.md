@@ -33,6 +33,12 @@ Flutter/Dart for mobile; Firebase Authentication, Firestore, Storage and Cloud F
 ## Team
 RedPlay Studio, Tutorial Group 9; group leader: **Avijit Chandra Dey**. The group leader reports that the listed workstream responsibilities were confirmed at kickoff; collaborator GitHub usernames are still needed to make account assignments. See [team roles](docs/team-roles.md).
 
+## Authentication (Issue #9)
+- Firebase student account registration, sign-in/sign-out and password reset have been implemented in source code.
+- Vendor approval requests and admin approval UI are backed by restrictive Firestore rules.
+- The application **fails closed** until the group's own Firebase project is configured. There are no real accounts or production administrator permissions in this repository.
+- [Firebase provisioning and deployment guide](docs/firebase-setup.md) · [Firestore rules](firestore.rules) · [Security tests](security/tests/roles.test.cjs)
+
 ## Project documentation
 - [Project charter](docs/project-charter.md)
 - [Requirements](docs/requirements.md)
