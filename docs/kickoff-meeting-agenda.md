@@ -1,6 +1,6 @@
 # Kickoff meeting agenda — RedPlay Studio
 **Chair:** Avijit Chandra Dey · WIA2007 Tutorial Group 9
-**Duration:** 45 minutes · **Actual meeting date/time:** to be scheduled
+**Planned duration:** 45 minutes · **Actual meeting date/time:** not supplied (leader confirmed completion on 2 Nov 2026)
 
 | Time | Topic | Decision |
 |---|---|---|
@@ -21,4 +21,4 @@
 - Next meeting:
 - Minutes confirmed by:
 
-**Status:** Agenda drafted; no meeting yet recorded.
+**Status:** Group leader reported kickoff completed and roles confirmed on 2 Nov 2026. This is a status acknowledgment, **not an invented meeting transcript**. Complete the minutes fields above with actual details/attendees when available.
