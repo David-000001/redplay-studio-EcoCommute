@@ -29,4 +29,4 @@ jobs:
       - name: Install security test dependencies
         run: npm install --prefix security --no-audit --no-fund
       - name: Run Firestore rules tests with emulator
-        run: ./security/node_modules/.bin/firebase emulators:exec --project demo-foodloop-auth --only firestore "npm --prefix security test"
+        run: ./security/node_modules/.bin/firebase emulators:exec --project demo-foodloop-auth --only auth,firestore "npm --prefix security test"
