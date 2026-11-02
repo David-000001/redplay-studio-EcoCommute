@@ -1,0 +1,86 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isSelf(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+    function isAdmin() {
+      return signedIn() &&
+        exists(/databases/$(database)/documents/profiles/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.role == 'admin';
+    }
+    function approvedVendor() {
+      return signedIn() &&
+        exists(/databases/$(database)/documents/profiles/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.role == 'vendor' &&
+        get(/databases/$(database)/documents/profiles/$(request.auth.uid)).data.vendorStatus == 'approved';
+    }
+    function ownProfileUpdate(uid) {
+      return isSelf(uid) &&
+        request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['displayName', 'vendorStatus']) &&
+        request.resource.data.role == resource.data.role &&
+        request.resource.data.createdAt == resource.data.createdAt &&
+        request.resource.data.displayName is string &&
+        request.resource.data.displayName.size() > 0 &&
+        request.resource.data.displayName.size() <= 80 &&
+        (
+          request.resource.data.vendorStatus == resource.data.vendorStatus ||
+          (
+            resource.data.role == 'student' &&
+            resource.data.vendorStatus in ['none', 'rejected'] &&
+            request.resource.data.vendorStatus == 'pending'
+          )
+        );
+    }
+    function adminApprovesVendor() {
+      return isAdmin() &&
+        resource.data.role == 'student' &&
+        resource.data.vendorStatus == 'pending' &&
+        request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['role', 'vendorStatus']) &&
+        request.resource.data.role == 'vendor' &&
+        request.resource.data.vendorStatus == 'approved';
+    }
+
+    match /profiles/{uid} {
+      allow get: if isSelf(uid) || isAdmin();
+      allow list: if isAdmin();
+
+      // Client registrations can *only* produce a student profile.
+      allow create: if isSelf(uid) &&
+        request.resource.data.keys().hasOnly(
+          ['displayName', 'role', 'vendorStatus', 'createdAt']) &&
+        request.resource.data.keys().hasAll(
+          ['displayName', 'role', 'vendorStatus', 'createdAt']) &&
+        request.resource.data.role == 'student' &&
+        request.resource.data.vendorStatus == 'none' &&
+        request.resource.data.displayName is string &&
+        request.resource.data.displayName.size() > 0 &&
+        request.resource.data.displayName.size() <= 80 &&
+        request.resource.data.createdAt == request.time;
+
+      // The client may request approval, but can never approve itself.
+      // Admin status can only be provisioned by a trusted server SDK.
+      allow update: if ownProfileUpdate(uid) || adminApprovesVendor();
+      allow delete: if false;
+    }
+
+    match /listings/{listingId} {
+      allow get, list: if signedIn();
+      allow create: if approvedVendor() &&
+        request.resource.data.keys().hasAll(['vendorId']) &&
+        request.resource.data.vendorId == request.auth.uid;
+      // Listing modification and collection mutations are separate workstreams.
+      allow update, delete: if false;
+    }
+
+    // Fail closed for claims, payment, aggregate, audit and all other paths.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
