@@ -1,0 +1,22 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+coverage/
+*.iml
+.idea/
+.vscode/
+# Secrets
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+serviceAccountKey.json
+firebase-adminsdk*.json
+# OS
+.DS_Store
+Thumbs.db
