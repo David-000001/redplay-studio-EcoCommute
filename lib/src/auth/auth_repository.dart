@@ -59,6 +59,7 @@ abstract class AuthRepository {
   Future<void> signOut();
   Future<void> requestVendorApproval(String uid);
   Future<void> approveVendor(String uid);
+  Stream<List<UserProfile>> pendingVendorRequests();
 }
 
 class UnavailableAuthRepository implements AuthRepository {
@@ -87,4 +88,6 @@ class UnavailableAuthRepository implements AuthRepository {
   Future<void> requestVendorApproval(String uid) async => _unavailable();
   @override
   Future<void> approveVendor(String uid) async => _unavailable();
+  @override
+  Stream<List<UserProfile>> pendingVendorRequests() => Stream.value(const []);
 }
