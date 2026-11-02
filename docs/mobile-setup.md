@@ -4,7 +4,8 @@
 - **Native Android project exists** in `android/`, generated with `flutter create . --platforms=android --project-name um_foodloop` on GitHub Actions.
 - Flutter SDK installation, `flutter analyze` and the existing widget tests **passed** in GitHub Actions.
 - `flutter build apk --debug` **passed**, and an Android API 35 emulator booted and installed the app in the bootstrap job.
-- The first integration test failed due to an incorrect test assertion (two identical visible headings); the assertion has been corrected, and the repeat emulator test is tracked by the Android smoke workflow. Do not record the emulator navigation test as passed until the new workflow succeeds.
+- **Android API 35 emulator integration test PASSED** on the corrected test: home → Authentication → back → Surplus Listings. Verified in [GitHub Actions run #41415696320](https://github.com/David-000001/redplay-studio-foodloop/actions/runs/41415696320). The prior assertion failure was diagnosed and corrected.
+- **Debug APK artifact uploaded** in the same successful workflow (artifact name: `foodloop-android-debug-apk`); download from the run's Artifacts section.
 
 ## Run locally
 1. Install the Flutter SDK, Android Studio / Android SDK and a compatible JDK.
