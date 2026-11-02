@@ -1,8 +1,8 @@
-# RedPlay Studio team roster and provisional workstreams
+# RedPlay Studio team roster and leader-confirmed workstreams
 
-These roles are proposals and are not confirmed assignments. GitHub issue assignees will be added after members provide their GitHub usernames.
+On 2 Nov 2026, group leader Avijit Chandra Dey reported that the kickoff took place and the group accepted the workstreams below. This is a leader-confirmed status; individual acceptance records are not attached. Other members' GitHub usernames are not yet known, so their tasks cannot be assigned to accounts.
 
-| Member | Proposed development workstream |
+| Member | Confirmed workstream (leader-reported) |
 |---|---|
 | Avijit Chandra Dey (lead) | Architecture, authentication, integration, GitHub reviews |
 | Maliha Chowdhury | Student UX, browse/filter workflows, surveys |
