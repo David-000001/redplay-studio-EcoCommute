@@ -1,6 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const path = require('node:path');
 const { initializeTestEnvironment, assertSucceeds, assertFails } =
   require('@firebase/rules-unit-testing');
 const { doc, setDoc, getDoc, updateDoc, collection, getDocs, query, where, serverTimestamp } =
@@ -10,7 +11,7 @@ let env;
 test.before(async () => {
   env = await initializeTestEnvironment({
     projectId: 'demo-foodloop-auth',
-    firestore: { rules: fs.readFileSync('firestore.rules', 'utf8') },
+    firestore: { rules: fs.readFileSync(path.resolve(__dirname, '../../firestore.rules'), 'utf8') },
   });
 });
 
