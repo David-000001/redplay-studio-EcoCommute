@@ -1,7 +1,7 @@
 # UM FoodLoop 🌱
 **RedPlay Studio | WIA2007 Mobile Application Development | Universiti Malaya | Semester 1, 2026/2027**
 
-> **Status: Planning / lecturer approval pending.** The group is considering **SDG 13, Target 13.3** as the primary anchor. Do not treat the SDG target, institutional support, or participating vendors as approved until verified.
+> **Status: Kickoff completed (reported by group leader on 2 Nov 2026).** The leader reports that the lecturer approved **SDG 13, Target 13.3** and that member roles were accepted. Approval correspondence and actual meeting minutes have not yet been attached to this repository. This does not establish UM institutional support or vendor participation.
 
 ## Vision
 A mobile-first campus marketplace helping participating UM cafeteria vendors and event organizers offer **safe, eligible unsold surplus food** for student collection, while explaining the climate consequences of food waste and supporting institutional sustainability reporting.
@@ -31,7 +31,7 @@ Flutter/Dart for mobile; Firebase Authentication, Firestore, Storage and Cloud F
 - Report (maximum 15 pages and 2,500 words): **10 Jan 2027 at 12:00 PM**
 
 ## Team
-RedPlay Studio, Tutorial Group 9; group leader: **Avijit Chandra Dey**. Responsibility allocation is provisional until kickoff confirmation. See [team roles](docs/team-roles.md).
+RedPlay Studio, Tutorial Group 9; group leader: **Avijit Chandra Dey**. The group leader reports that the listed workstream responsibilities were confirmed at kickoff; collaborator GitHub usernames are still needed to make account assignments. See [team roles](docs/team-roles.md).
 
 ## Project documentation
 - [Project charter](docs/project-charter.md)
