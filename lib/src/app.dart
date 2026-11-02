@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'auth/auth_repository.dart';
 import 'navigation/app_routes.dart';
 
 class FoodLoopApp extends StatelessWidget {
-  const FoodLoopApp({super.key});
+  const FoodLoopApp({this.authRepository, super.key});
+
+  final AuthRepository? authRepository;
 
   @override
   Widget build(BuildContext context) {
+    final repository = authRepository ?? const UnavailableAuthRepository();
     return MaterialApp(
       title: 'UM FoodLoop',
       debugShowCheckedModeBanner: false,
@@ -16,7 +20,8 @@ class FoodLoopApp extends StatelessWidget {
         ),
       ),
       initialRoute: AppRoutes.home,
-      onGenerateRoute: AppRoutes.onGenerateRoute,
+      onGenerateRoute: (settings) =>
+          AppRoutes.onGenerateRoute(settings, authRepository: repository),
     );
   }
 }

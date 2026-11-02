@@ -9,10 +9,10 @@ void main() {
     expect(find.text('Surplus Listings'), findsOneWidget);
   });
 
-  testWidgets('navigates to a placeholder', (tester) async {
+  testWidgets('navigates to authentication with safe unconfigured state', (tester) async {
     await tester.pumpWidget(const FoodLoopApp());
     await tester.tap(find.text('Authentication & Roles'));
     await tester.pumpAndSettle();
-    expect(find.textContaining('Status: Not implemented'), findsOneWidget);
+    expect(find.textContaining('Firebase not configured'), findsOneWidget);
   });
 }

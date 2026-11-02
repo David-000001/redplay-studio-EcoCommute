@@ -14,8 +14,8 @@ void main() {
     await tester.tap(find.text('Authentication & Roles'));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('Status: Not implemented'), findsOneWidget);
-    expect(find.text('Authentication & Roles'), findsNWidgets(2));
+    expect(find.textContaining('Firebase not configured'), findsOneWidget);
+    expect(find.text('Authentication & Roles'), findsOneWidget);
 
     await tester.pageBack();
     await tester.pumpAndSettle();

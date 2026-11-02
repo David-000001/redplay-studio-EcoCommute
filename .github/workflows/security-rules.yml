@@ -1,0 +1,32 @@
+name: Firestore permission tests
+on:
+  push:
+    paths:
+      - 'firestore.rules'
+      - 'firebase.json'
+      - 'security/**'
+      - '.github/workflows/security-rules.yml'
+  pull_request:
+    paths:
+      - 'firestore.rules'
+      - 'firebase.json'
+      - 'security/**'
+      - '.github/workflows/security-rules.yml'
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install security test dependencies
+        run: npm install --prefix security --no-audit --no-fund
+      - name: Run Firestore rules tests with emulator
+        run: ./security/node_modules/.bin/firebase emulators:exec --project demo-foodloop-auth --only firestore "npm --prefix security test"

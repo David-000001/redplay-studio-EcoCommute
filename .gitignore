@@ -29,3 +29,8 @@ android/key.properties
 android/build/
 android/app/build/
 .gradle/
+
+# Firebase local configuration and privileged credentials
+firebase.local.json
+**/service-account*.json
+**/serviceAccount*.json
