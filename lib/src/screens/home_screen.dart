@@ -22,11 +22,11 @@ class HomeScreen extends StatelessWidget {
           children: [
             Text('RedPlay Studio', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: 8),
-            const Text('WIA2007 • Tutorial Group 9 • SDG 13.3 (pending approval)'),
+            const Text('WIA2007 • Tutorial Group 9 • SDG 13.3'),
             const SizedBox(height: 12),
             const Card(child: Padding(
               padding: EdgeInsets.all(16),
-              child: Text('Development scaffold only: no real accounts, claims or food safety verification are active.'),
+              child: Text('FoodLoop prototype: authentication needs Firebase configuration. No live food claims or food-safety certification are active.'),
             )),
             for (final module in modules)
               Card(child: ListTile(
