@@ -96,6 +96,15 @@ class FirebaseAuthRepository implements AuthRepository {
   }
 
   @override
+  Stream<List<UserProfile>> pendingVendorRequests() => _db
+      .collection('profiles')
+      .where('vendorStatus', isEqualTo: 'pending')
+      .snapshots()
+      .map((snapshot) => snapshot.docs
+          .map((doc) => UserProfile.fromData(doc.id, doc.data()))
+          .toList());
+
+  @override
   Future<void> approveVendor(String uid) async {
     // Firebase rules authorize only an existing, server-provisioned admin.
     await _db.collection('profiles').doc(uid).update({
