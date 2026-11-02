@@ -1,23 +1,41 @@
-# Flutter scaffold setup
-The repository contains navigation source, not a complete running Android project. Flutter and platform files are required; SDK compilation has not been verified in this environment.
+# Flutter Android setup and testing
 
-## Setup
+## Project status (2 Nov 2026)
+- **Native Android project exists** in `android/`, generated with `flutter create . --platforms=android --project-name um_foodloop` on GitHub Actions.
+- Flutter SDK installation, `flutter analyze` and the existing widget tests **passed** in GitHub Actions.
+- `flutter build apk --debug` **passed**, and an Android API 35 emulator booted and installed the app in the bootstrap job.
+- The first integration test failed due to an incorrect test assertion (two identical visible headings); the assertion has been corrected, and the repeat emulator test is tracked by the Android smoke workflow. Do not record the emulator navigation test as passed until the new workflow succeeds.
+
+## Run locally
+1. Install the Flutter SDK, Android Studio / Android SDK and a compatible JDK.
+2. Clone this repository.
+3. Run:
 ```bash
 flutter doctor
-flutter create . --platforms=android
 flutter pub get
 flutter analyze
 flutter test
+flutter build apk --debug
+flutter devices
 flutter run
 ```
-Inspect changes made by `flutter create` before committing generated Android files.
+4. To execute a navigation integration test on a connected Android emulator:
+```bash
+flutter test integration_test/navigation_test.dart -d emulator-5554
+```
+Use the emulator device ID shown by `flutter devices`.
 
-## Architecture
-- `lib/main.dart`: entrypoint
-- `lib/src/app.dart`: theme and route registry
-- `lib/src/navigation/app_routes.dart`: navigation only; **not authorization**
-- `lib/src/screens/`: home and explicit not-implemented module placeholders
-- `test/app_test.dart`: widget smoke tests
+## Source tree
+- `lib/main.dart`: app entrypoint.
+- `lib/src/app.dart`: Material app and theme.
+- `lib/src/navigation/app_routes.dart`: route names; navigation is **not** backend authorization.
+- `lib/src/screens/`: home page and explicit placeholder screens.
+- `test/app_test.dart`: widget smoke tests.
+- `integration_test/navigation_test.dart`: real Android navigation test.
+- `android/`: generated native Android project.
+- `.github/workflows/checks.yml`: analyzer and widget checks.
+- `.github/workflows/android-smoke.yml`: Android emulator navigation test.
+- `.github/workflows/bootstrap-android.yml`: original Android platform bootstrapping and debug build job.
 
-## Next: #9 authentication
-After the group confirms backend technology and creates an authorized backend project, implement sign-in, logout, password recovery and backend-enforced student/vendor/admin roles. Do not grant admin permissions from a UI control, and never commit service keys.
+## Next issue (#9): authentication
+Once the backend is approved and provisioned, implement student/vendor login, password recovery, controlled vendor approval and backend-enforced admin roles. The placeholder at `/auth` does not authenticate users. Never commit credentials, API secrets or personal student data.
