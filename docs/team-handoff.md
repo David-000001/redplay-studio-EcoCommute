@@ -68,7 +68,7 @@ flutter test
 npm --prefix security run verify
 flutter build apk --debug
 ```
-The security verification command starts temporary emulators; stop manually running emulators first to avoid port conflicts. Android integration tests run in GitHub Actions. Tests use synthetic data and do not demonstrate cloud provisioning or real stakeholder validation.
+The security verification command starts temporary emulators; stop manually running emulators first to avoid port conflicts. Android integration tests run in GitHub Actions. Its `foodloop-local-development-apk` artifact contains the normal app compiled for local emulators, saved before the test runner replaces build outputs. Tests use synthetic data and do not demonstrate cloud provisioning or real stakeholder validation.
 
 Acceptance: relevant FR IDs implemented; loading/empty/error states handled; tests and screenshots attached; no personal data/credentials in commits; AI usage recorded; source understood by its author. Green CI alone does not mean the whole feature is accepted.
 

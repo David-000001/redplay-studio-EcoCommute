@@ -34,7 +34,9 @@ jobs:
           flutter pub get
           flutter analyze
           flutter test
-          flutter build apk --debug
+          flutter build apk --debug --dart-define=USE_FIREBASE_EMULATORS=true
+          mkdir -p artifacts
+          cp build/app/outputs/flutter-apk/app-debug.apk artifacts/foodloop-local-debug.apk
       - name: Install local Firebase test tools
         run: npm install --prefix security --no-audit --no-fund
       - name: Enable KVM
@@ -56,5 +58,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: foodloop-local-development-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: artifacts/foodloop-local-debug.apk
           retention-days: 14

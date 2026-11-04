@@ -1,6 +1,7 @@
 name: Firestore permission tests
 on:
   push:
+    branches: [main]
     paths:
       - 'firestore.rules'
       - 'firebase.json'
