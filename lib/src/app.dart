@@ -3,7 +3,8 @@ import 'auth/auth_repository.dart';
 import 'navigation/app_routes.dart';
 
 class FoodLoopApp extends StatelessWidget {
-  const FoodLoopApp({this.authRepository, this.localDevelopment = false, super.key});
+  const FoodLoopApp(
+      {this.authRepository, this.localDevelopment = false, super.key});
 
   final AuthRepository? authRepository;
   final bool localDevelopment;

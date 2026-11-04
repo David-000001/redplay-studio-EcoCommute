@@ -6,7 +6,8 @@ import 'package:firebase_core/firebase_core.dart';
 abstract final class FirebaseEnvironment {
   static const useEmulators = bool.fromEnvironment('USE_FIREBASE_EMULATORS');
   static const emulatorHost = String.fromEnvironment(
-    'FIREBASE_EMULATOR_HOST', defaultValue: '10.0.2.2',
+    'FIREBASE_EMULATOR_HOST',
+    defaultValue: '10.0.2.2',
   );
   static const demoProjectId = 'demo-foodloop-auth';
 

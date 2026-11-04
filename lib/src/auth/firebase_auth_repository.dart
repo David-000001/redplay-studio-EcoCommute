@@ -9,7 +9,8 @@ class FirebaseAuthRepository implements AuthRepository {
   FirebaseAuthRepository({
     required FirebaseAuth auth,
     required FirebaseFirestore firestore,
-  }) : _auth = auth, _db = firestore;
+  })  : _auth = auth,
+        _db = firestore;
 
   final FirebaseAuth _auth;
   final FirebaseFirestore _db;
@@ -83,6 +84,18 @@ class FirebaseAuthRepository implements AuthRepository {
 
   @override
   Future<void> signOut() => _auth.signOut();
+
+  @override
+  Future<void> updateDisplayName(String uid, String displayName) async {
+    if (_auth.currentUser?.uid != uid) {
+      throw StateError('Sign in to update your own profile.');
+    }
+    final name = displayName.trim();
+    if (name.isEmpty || name.length > 80) {
+      throw ArgumentError('Enter a name between 1 and 80 characters.');
+    }
+    await _db.collection('profiles').doc(uid).update({'displayName': name});
+  }
 
   @override
   Future<void> requestVendorApproval(String uid) async {

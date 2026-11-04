@@ -12,7 +12,7 @@ Collection: `profiles/{Firebase Auth UID}` (not `users`). Fields: `displayName` 
 
 Clients create only their own student profile. They can update their display name or request pending vendor status. Only an existing admin approves a pending student into an approved vendor. Admin status is provisioned with trusted server tools; never selectable in registration. A missing profile grants no privileges. Firebase Auth owns passwords and email; neither belongs in public listing documents.
 
-The current UI implements password recovery and approval requests, but not a complete editable profile/preferences screen or verification-details form. Coordinate these with HAN and Rasha; do not mark all of FR-02/FR-03 complete merely because sign-in works.
+The current UI implements password recovery, display-name editing and approval requests, but not notification preferences or a verification-details form. Coordinate these with HAN and Rasha; do not mark all of FR-02/FR-03 complete merely because sign-in works.
 
 ## Feature contract proposal for Zhou to finalize in #7
 The following is a starting contract, not deployed schema or security enforcement.

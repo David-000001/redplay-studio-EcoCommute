@@ -57,6 +57,7 @@ abstract class AuthRepository {
   });
   Future<void> sendPasswordReset(String email);
   Future<void> signOut();
+  Future<void> updateDisplayName(String uid, String displayName);
   Future<void> requestVendorApproval(String uid);
   Future<void> approveVendor(String uid);
   Stream<List<UserProfile>> pendingVendorRequests();
@@ -72,18 +73,23 @@ class UnavailableAuthRepository implements AuthRepository {
   Stream<UserProfile?> watchProfile(String uid) => Stream.value(null);
   Never _unavailable() => throw StateError('Firebase is not configured.');
   @override
-  Future<void> signIn({required String email, required String password}) async =>
+  Future<void> signIn(
+          {required String email, required String password}) async =>
       _unavailable();
   @override
   Future<void> registerStudent({
     required String email,
     required String password,
     required String displayName,
-  }) async => _unavailable();
+  }) async =>
+      _unavailable();
   @override
   Future<void> sendPasswordReset(String email) async => _unavailable();
   @override
   Future<void> signOut() async => _unavailable();
+  @override
+  Future<void> updateDisplayName(String uid, String displayName) async =>
+      _unavailable();
   @override
   Future<void> requestVendorApproval(String uid) async => _unavailable();
   @override
