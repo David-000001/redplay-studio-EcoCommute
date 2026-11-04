@@ -3,7 +3,10 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "test": "node --test --test-concurrency=1 tests/*.test.cjs"
+    "test": "node --test --test-concurrency=1 tests/*.test.cjs",
+    "emulators": "firebase emulators:start --config ../firebase.json --project demo-foodloop-auth --only auth,firestore",
+    "seed": "node seed-emulators.cjs",
+    "verify": "firebase emulators:exec --config ../firebase.json --project demo-foodloop-auth --only auth,firestore \"npm test\""
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "^5.0.0",

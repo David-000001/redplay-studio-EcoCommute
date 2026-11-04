@@ -6,6 +6,9 @@
 - Don't upload student IDs, private service-account keys, passwords or contact data to this public repository.
 - The code uses *configurable* Firebase options, not embedded Firebase credentials.
 
+## Develop before cloud provisioning
+Use the [local emulator setup](team-handoff.md). It supplies only synthetic local accounts and needs no Firebase login. This does not complete issue #24.
+
 ## 1. Create your Firebase project
 1. Visit https://console.firebase.google.com/ and create or select a project under an account the group can administer.
 2. Add an **Android app**. Its current package/application ID is `com.example.um_foodloop` (see `android/app/build.gradle.kts`). Prefer choosing a permanent, team-owned application ID first, such as `org.redplaystudio.foodloop`, and update Android package metadata carefully.

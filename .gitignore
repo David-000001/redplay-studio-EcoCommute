@@ -34,3 +34,7 @@ android/app/build/
 firebase.local.json
 **/service-account*.json
 **/serviceAccount*.json
+node_modules/
+*-debug.log
+.firebase/
+.emulator-data/
