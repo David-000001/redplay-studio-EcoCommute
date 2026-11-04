@@ -38,7 +38,9 @@ class _AuthScreenState extends State<AuthScreen> {
         'invalid-email' => 'Enter a valid email address.',
         'email-already-in-use' => 'An account with this email already exists.',
         'weak-password' => 'Please use a stronger password.',
-        'invalid-credential' || 'wrong-password' || 'user-not-found' =>
+        'invalid-credential' ||
+        'wrong-password' ||
+        'user-not-found' =>
           'Unable to sign in. Check your email and password.',
         'too-many-requests' => 'Too many attempts. Try again later.',
         _ => 'Authentication failed. Please try again.',
@@ -70,6 +72,45 @@ class _AuthScreenState extends State<AuthScreen> {
       _mode = mode;
       _feedback = null;
     });
+  }
+
+  Future<void> _editName(UserProfile profile) async {
+    final controller = _name..text = profile.displayName;
+    final key = GlobalKey<FormState>();
+    final name = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Edit display name'),
+        content: Form(
+          key: key,
+          child: TextFormField(
+            controller: controller,
+            decoration: const InputDecoration(labelText: 'Display name'),
+            validator: (value) => value == null ||
+                    value.trim().isEmpty ||
+                    value.trim().length > 80
+                ? 'Enter a name (1-80 characters).'
+                : null,
+          ),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel')),
+          FilledButton(
+              onPressed: () {
+                if (key.currentState!.validate()) {
+                  Navigator.pop(context, controller.text.trim());
+                }
+              },
+              child: const Text('Save')),
+        ],
+      ),
+    );
+    if (name != null && mounted) {
+      await _run(() => widget.repository.updateDisplayName(profile.uid, name),
+          success: 'Display name updated.');
+    }
   }
 
   Future<void> _submit() async {
@@ -119,9 +160,11 @@ class _AuthScreenState extends State<AuthScreen> {
         stream: widget.repository.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return const Center(child: Text('Unable to load authentication state.'));
+            return const Center(
+                child: Text('Unable to load authentication state.'));
           }
-          if (!snapshot.hasData && snapshot.connectionState == ConnectionState.waiting) {
+          if (!snapshot.hasData &&
+              snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
           final identity = snapshot.data;
@@ -151,10 +194,11 @@ class _AuthScreenState extends State<AuthScreen> {
                 TextFormField(
                   controller: _name,
                   decoration: const InputDecoration(labelText: 'Display name'),
-                  validator: (value) =>
-                      value == null || value.trim().isEmpty || value.trim().length > 80
-                          ? 'Enter a name (1–80 characters).'
-                          : null,
+                  validator: (value) => value == null ||
+                          value.trim().isEmpty ||
+                          value.trim().length > 80
+                      ? 'Enter a name (1–80 characters).'
+                      : null,
                 ),
                 const SizedBox(height: 8),
               ],
@@ -162,10 +206,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 controller: _email,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(labelText: 'Email'),
-                validator: (value) =>
-                    value == null || !value.contains('@')
-                        ? 'Enter an email address.'
-                        : null,
+                validator: (value) => value == null || !value.contains('@')
+                    ? 'Enter an email address.'
+                    : null,
               ),
               if (_mode != _AuthMode.reset) ...[
                 const SizedBox(height: 8),
@@ -173,10 +216,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   controller: _password,
                   obscureText: true,
                   decoration: const InputDecoration(labelText: 'Password'),
-                  validator: (value) =>
-                      value == null || value.length < 6
-                          ? 'Enter at least 6 characters.'
-                          : null,
+                  validator: (value) => value == null || value.length < 6
+                      ? 'Enter at least 6 characters.'
+                      : null,
                 ),
               ],
               const SizedBox(height: 16),
@@ -189,10 +231,11 @@ class _AuthScreenState extends State<AuthScreen> {
                 }),
               ),
               if (_busy) const LinearProgressIndicator(),
-              if (_feedback != null) Padding(
-                padding: const EdgeInsets.only(top: 12),
-                child: Text(_feedback!),
-              ),
+              if (_feedback != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Text(_feedback!),
+                ),
               if (_mode != _AuthMode.signIn)
                 TextButton(
                   onPressed: _busy ? null : () => _select(_AuthMode.signIn),
@@ -223,7 +266,8 @@ class _AuthScreenState extends State<AuthScreen> {
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
-              child: Text('Unable to load profile. Check Firestore permissions.'),
+              child:
+                  Text('Unable to load profile. Check Firestore permissions.'),
             );
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -233,7 +277,8 @@ class _AuthScreenState extends State<AuthScreen> {
           return ListView(
             padding: const EdgeInsets.all(24),
             children: [
-              Text('Signed in', style: Theme.of(context).textTheme.headlineSmall),
+              Text('Signed in',
+                  style: Theme.of(context).textTheme.headlineSmall),
               Text(identity.email),
               const SizedBox(height: 16),
               if (profile == null)
@@ -241,6 +286,10 @@ class _AuthScreenState extends State<AuthScreen> {
                     'no role privileges are granted without a profile.')
               else ...[
                 Text('Name: ${profile.displayName}'),
+                TextButton(
+                  onPressed: _busy ? null : () => _editName(profile),
+                  child: const Text('Edit display name'),
+                ),
                 Text('Role: ${profile.role.name}'),
                 Text('Vendor approval: ${profile.vendorStatus.name}'),
                 if (profile.role == FoodLoopRole.student &&
@@ -258,8 +307,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                 if (profile.vendorStatus == VendorStatus.pending)
                   const Text('Vendor application pending admin review.'),
-                if (profile.canReviewVendors)
-                  _approvalList(),
+                if (profile.canReviewVendors) _approvalList(),
               ],
               const SizedBox(height: 16),
               if (_feedback != null) Text(_feedback!),
@@ -286,7 +334,8 @@ class _AuthScreenState extends State<AuthScreen> {
               }
               if (!snapshot.hasData) return const LinearProgressIndicator();
               final pending = snapshot.data!;
-              if (pending.isEmpty) return const Text('No pending applications.');
+              if (pending.isEmpty)
+                return const Text('No pending applications.');
               return Column(
                 children: [
                   for (final profile in pending)
@@ -297,7 +346,8 @@ class _AuthScreenState extends State<AuthScreen> {
                         onPressed: _busy
                             ? null
                             : () => _run(
-                                  () => widget.repository.approveVendor(profile.uid),
+                                  () => widget.repository
+                                      .approveVendor(profile.uid),
                                   success: 'Vendor approved.',
                                 ),
                         child: const Text('Approve'),

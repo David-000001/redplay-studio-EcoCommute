@@ -1,6 +1,7 @@
 name: Firestore permission tests
 on:
   push:
+    branches: [main]
     paths:
       - 'firestore.rules'
       - 'firebase.json'
@@ -13,6 +14,8 @@ on:
       - 'security/**'
       - '.github/workflows/security-rules.yml'
 
+permissions:
+  contents: read
 jobs:
   security:
     runs-on: ubuntu-latest

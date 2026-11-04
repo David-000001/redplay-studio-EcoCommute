@@ -1,42 +1,35 @@
-# Flutter Android setup and testing
+# Flutter Android setup
 
-## Project status (2 Nov 2026)
-- **Native Android project exists** in `android/`, generated with `flutter create . --platforms=android --project-name um_foodloop` on GitHub Actions.
-- Flutter SDK installation, `flutter analyze` and the existing widget tests **passed** in GitHub Actions.
-- `flutter build apk --debug` **passed**, and an Android API 35 emulator booted and installed the app in the bootstrap job.
-- **Android API 35 emulator integration test PASSED** on the corrected test: home → Authentication → back → Surplus Listings. Verified in [GitHub Actions run #41415696320](https://github.com/David-000001/redplay-studio-foodloop/actions/runs/41415696320). The prior assertion failure was diagnosed and corrected.
-- **Debug APK artifact uploaded** in the same successful workflow (artifact name: `foodloop-android-debug-apk`); download from the run's Artifacts section.
+Use [team handoff](team-handoff.md) for the complete local setup, sample accounts, task ownership and review workflow. Use [Firebase setup](firebase-setup.md) for cloud provisioning.
 
-## Run locally
-1. Install the Flutter SDK, Android Studio / Android SDK and a compatible JDK.
-2. Clone this repository.
-3. Run:
-```bash
+## Commands from repository root
+```sh
 flutter doctor
 flutter pub get
 flutter analyze
 flutter test
 flutter build apk --debug
-flutter devices
-flutter run
 ```
-4. To execute a navigation integration test on a connected Android emulator:
-```bash
+To open the app without a backend: `flutter run`.
+To use local Firebase services, start and seed them as described in the handoff, then run `flutter run --dart-define=USE_FIREBASE_EMULATORS=true`.
+
+Navigation test with no cloud connection:
+```sh
 flutter test integration_test/navigation_test.dart -d emulator-5554
 ```
-Use the emulator device ID shown by `flutter devices`.
+With local emulators running and seeded, test the real Dart authentication repository:
+```sh
+flutter test integration_test/auth_emulator_test.dart -d emulator-5554 --dart-define=USE_FIREBASE_EMULATORS=true
+```
+Replace the device ID with the Android emulator listed by `flutter devices`. The tests deliberately do not provision or contact a cloud project.
 
-## Source tree
-- `lib/main.dart`: app entrypoint.
-- `lib/src/app.dart`: Material app and theme.
-- `lib/src/navigation/app_routes.dart`: route names; navigation is **not** backend authorization.
-- `lib/src/screens/`: home page and explicit placeholder screens.
-- `test/app_test.dart`: widget smoke tests.
-- `integration_test/navigation_test.dart`: real Android navigation test.
-- `android/`: generated native Android project.
-- `.github/workflows/checks.yml`: analyzer and widget checks.
-- `.github/workflows/android-smoke.yml`: Android emulator navigation test.
-- `.github/workflows/bootstrap-android.yml`: original Android platform bootstrapping and debug build job.
+## Troubleshooting
+- Missing Android toolchain: resolve `flutter doctor` before building.
+- Firebase not configured: local mode requires the compile-time flag; stop and restart after changing flags.
+- Connection refused: both emulators must be running on ports 9099 and 8080; Android emulator host is 10.0.2.2.
+- Local sign-in fails: run the seed command again, then use the exact local email/password in the handoff.
+- Port already in use during security tests: stop the manually running Firebase emulators.
+- Permission denied outside profiles: module rules are intentionally unfinished; coordinate with Zhou instead of opening all rules.
 
-## Next issue (#9): authentication
-Once the backend is approved and provisioned, implement student/vendor login, password recovery, controlled vendor approval and backend-enforced admin roles. The placeholder at `/auth` does not authenticate users. Never commit credentials, API secrets or personal student data.
+## CI
+Flutter quality runs analysis and all unit/widget tests. Android checks build a debug APK and run navigation plus local-auth integration tests. Firestore checks run real SDK and rule tests against local emulators. Build artifacts are for development, not a production release.

@@ -3,6 +3,10 @@
 
 > **Status: Kickoff completed (reported by group leader on 2 Nov 2026).** The leader reports that the lecturer approved **SDG 13, Target 13.3** and that member roles were accepted. Approval correspondence and actual meeting minutes have not yet been attached to this repository. This does not establish UM institutional support or vendor participation.
 
+## Start here
+
+**Teammates: read the [team handoff guide](docs/team-handoff.md)** for local setup without a Firebase account, sample logins, your issues and the PR workflow. See the [delivery plan](docs/delivery-plan.md) for integration and submission checkpoints.
+
 ## Vision
 A mobile-first campus marketplace helping participating UM cafeteria vendors and event organizers offer **safe, eligible unsold surplus food** for student collection, while explaining the climate consequences of food waste and supporting institutional sustainability reporting.
 
@@ -22,8 +26,8 @@ Vendor submits eligible surplus food listing → student browses → student cla
 - No personal or student ID numbers in this public repository. Keep participant surveys and personal data private.
 - Real UM stakeholder interviews, photos, and any claimed environmental outcomes must be documented rather than invented.
 
-## Suggested stack (not yet agreed)
-Flutter/Dart for mobile; Firebase Authentication, Firestore, Storage and Cloud Functions if permitted by the course. Confirm stack with team and lecturer before implementation.
+## Current stack
+Flutter/Dart Android app with Firebase Authentication and Firestore. Storage and Cloud Functions remain proposed for the assigned feature workstreams. The code baseline does not establish a recorded team/lecturer stack decision.
 
 ## Dates
 - Week 1 kickoff: **2–8 Nov 2026**
@@ -36,7 +40,8 @@ RedPlay Studio, Tutorial Group 9; group leader: **Avijit Chandra Dey**. The grou
 ## Authentication (Issue #9)
 - Firebase student account registration, sign-in/sign-out and password reset have been implemented in source code.
 - Vendor approval requests and admin approval UI are backed by restrictive Firestore rules.
-- The application **fails closed** until the group's own Firebase project is configured. There are no real accounts or production administrator permissions in this repository.
+- A debug-only local emulator mode lets the team develop without a cloud project; see the handoff guide.
+- Without local mode, the application **fails closed** until the group's own Firebase project is configured. There are no real accounts or production administrator permissions in this repository.
 - [Firebase provisioning and deployment guide](docs/firebase-setup.md) · [Firestore rules](firestore.rules) · [Security tests](security/tests/roles.test.cjs)
 
 ## Project documentation
