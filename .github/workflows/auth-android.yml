@@ -1,10 +1,8 @@
-name: Auth Android debug build
+name: Native Android Java checks
 on:
   pull_request:
-    paths: ['lib/**', 'test/**', 'integration_test/**', 'pubspec.*', 'android/**', 'security/**', 'firebase.json', 'firestore.rules', '.github/workflows/auth-android.yml']
   push:
     branches: [main]
-    paths: ['lib/**', 'test/**', 'integration_test/**', 'pubspec.*', 'android/**', 'security/**', 'firebase.json', 'firestore.rules', '.github/workflows/auth-android.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,7 +10,7 @@ concurrency:
   group: android-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  android-build:
+  android:
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -21,42 +19,36 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      - uses: android-actions/setup-android@v3
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          flutter-version: '3.47.9'
-          cache: true
-      - name: Verify Flutter and build
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build, unit tests and lint
         run: |
-          flutter pub get
-          flutter analyze
-          flutter test
-          flutter build apk --debug --dart-define=USE_FIREBASE_EMULATORS=true
-          mkdir -p artifacts
-          cp build/app/outputs/flutter-apk/app-debug.apk artifacts/foodloop-local-debug.apk
-      - name: Install local Firebase test tools
+          chmod +x android/gradlew
+          android/gradlew -p android :app:assembleLocalDebug :app:testLocalDebugUnitTest :app:lintLocalDebug
+      - name: Install Firebase test tools
         run: npm install --prefix security --no-audit --no-fund
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
-      - name: Verify Android navigation and Firebase repository
+      - name: Test Java repository and XML screens
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 35
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          script: |
-            flutter test integration_test/navigation_test.dart -d emulator-5554
-            ./security/node_modules/.bin/firebase emulators:exec --project demo-foodloop-auth --only auth,firestore "node security/seed-emulators.cjs && flutter test integration_test/auth_emulator_test.dart -d emulator-5554 --dart-define=USE_FIREBASE_EMULATORS=true"
-      - name: Archive development APK
+          script: ./security/node_modules/.bin/firebase emulators:exec --project demo-foodloop-auth --only auth,firestore "node security/seed-emulators.cjs && android/gradlew -p android :app:connectedLocalDebugAndroidTest"
+      - name: Archive development APK and reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: foodloop-local-development-apk
-          path: artifacts/foodloop-local-debug.apk
+          name: foodloop-native-local-development
+          path: |
+            android/app/build/outputs/apk/local/debug/*.apk
+            android/app/build/reports/
           retention-days: 14

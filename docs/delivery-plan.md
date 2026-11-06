@@ -43,9 +43,9 @@ Collect source inputs in PRs, not invented prose. Keep raw surveys and identifia
 ## Review checklist for Avijit
 - Map each PR to FR IDs and the accountable member.
 - Check schema changes with Zhou before merging dependent UI.
-- Require passing Flutter and security checks plus relevant screenshots.
+- Require passing native Android and security checks plus relevant screenshots.
 - Re-run integrated Android checks for shared auth/navigation changes.
 - Record actual decisions, feedback, tests and human review.
 - Archive genuine lecturer approval and kickoff minutes when available.
 - Obtain teammate GitHub usernames; forks allow work meanwhile.
-- Complete cloud setup #24 before claiming any live deployment.
+- Cloud setup #24 is complete; preserve its evidence and separately verify each new Android feature.

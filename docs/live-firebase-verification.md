@@ -34,11 +34,7 @@ Both temporary verification accounts and their profiles, plus the temporary list
 Development retention procedure: use synthetic records for testing; remove them after each test. Keep only required team accounts during development. The leader handles account/profile removal requests through trusted administration, and reviews/removes unused development data at project completion. This is a development procedure, not a claim of UM institutional policy or an implemented in-app deletion flow.
 
 ## Team use
-Obtain the live `firebase.local.json` from Avijit, save it at the repository root and run:
-```sh
-flutter pub get
-flutter run --dart-define-from-file=firebase.local.json
-```
+**Updated for Java/XML on 7 November:** obtain `google-services.json` from Avijit, save it in `android/app/`, open `android/` in Android Studio and select `cloudDebug`. See [native setup](mobile-setup.md). The 6 November verification above remains a historical backend SDK test, not a Java UI test.
 Restart fully when switching from local emulator mode. Register your own student account. Vendor access requires an admin's approval. The local sample passwords in the handoff do not apply to cloud accounts. Do not share the leader's admin password with the team.
 
 This completes the cloud setup/authentication scope of #24. Full listing validation, claims, notification delivery, impact reporting and campus-eligibility verification remain separate feature tasks. The current database is for development, not a claim of a finished campus launch.

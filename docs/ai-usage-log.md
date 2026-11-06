@@ -19,3 +19,7 @@ Keep the accurate original prompts/queries where required by the WIA2007 instruc
 - Work: inspected existing project/app configuration, created the default database, deployed existing repository rules, provisioned the owner administrator and ran live authentication/authorization tests with temporary users.
 - Automated verification: nine check groups passed; temporary test data cleaned up. See `live-firebase-verification.md`. Android UI against live cloud and external reset-mail delivery were not tested.
 - Human action observed: account sign-in approval and region selection. Independent human code review and other team contributions are not claimed.
+
+
+## 7 November 2026 — Java/XML migration
+Tool: Codex. User request: modify FoodLoop to Java/XML in Android Studio to match the supplied practical review. AI ported leader-owned Firebase account and role flows, XML screens/navigation, Gradle setup, tests/CI and handoff documentation. Existing deployed rules and cloud accounts were preserved. Official Android/Firebase setup and Maven versions were consulted. Test results belong to the migration PR/CI; no human code review, lecturer language mandate, stakeholder study or cloud Android UI run is fabricated. Each member must understand, verify and explain any reused code.

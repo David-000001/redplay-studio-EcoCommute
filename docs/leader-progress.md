@@ -26,3 +26,7 @@ Do not mark interviews, lecturer approval, tests, code compilation or member con
 - Provisioned the owner app administrator with the trusted Admin SDK; verified nine live authentication/authorization check groups and removed all temporary verification users/profiles/listings.
 - Private admin sign-in details and mobile config supplied locally; no credentials or student identifiers committed.
 - See `live-firebase-verification.md` and its JSON evidence for scope and limitations.
+
+
+## 7 November — native Android migration
+Leader requested Java + XML to match the supplied course practicals. Ported account/role features and module navigation, replaced Flutter build/CI, preserved the existing Firebase project and rules, and updated handoff paths. See [migration scope](java-migration.md). Full feature completion remains dependent on teammate implementations and real testing evidence.

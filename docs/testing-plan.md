@@ -10,4 +10,4 @@
 8. User study: capture vendor and student feedback, usability observations and optional pre/post climate comprehension scores.
 9. AI (if implemented): use held-out, consented UM cafeteria image sample with labeled classes; report per-class errors and manual correction rate.
 
-All findings remain pending until actual tests are run.
+Backend live results from 6 November and native Android migration CI are recorded separately. All unfinished-feature, performance and user-study findings remain pending until those tests are actually run.
