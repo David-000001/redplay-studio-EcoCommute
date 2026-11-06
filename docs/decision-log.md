@@ -11,3 +11,6 @@
 | D-08 | Kickoff meeting | Completed **as reported by leader on 2 Nov 2026**; actual meeting date/minutes not attached |
 
 The date above is the date of the leader's status report, **not necessarily the decision/meeting date**. Attach the actual lecturer response and approved minutes when available. D-02 through D-05 and D-07 remain open decisions where noted.
+
+## 6 November 2026 live Firebase configuration
+The project lead selected Singapore (`asia-southeast1`). The existing app uses the default Firestore database, so Standard/native mode was provisioned to preserve that contract. The project remains on its existing free plan. The administrator belongs to the project lead; credentials remain private. Live backend tests and their limits are recorded in `live-firebase-verification.md`.

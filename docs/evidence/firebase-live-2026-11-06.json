@@ -1,0 +1,72 @@
+{
+  "projectId": "um-foodloop",
+  "startedAt": "2026-11-06T14:56:54.278Z",
+  "method": "Firebase JavaScript client SDK against live Auth and Firestore; trusted Admin SDK for provisioning and cleanup",
+  "checks": [
+    {
+      "name": "Owner administrator provisioned through trusted Admin SDK",
+      "result": "passed"
+    },
+    {
+      "name": "Live student registration and profile creation",
+      "result": "passed"
+    },
+    {
+      "name": "Student edits own display name",
+      "result": "passed"
+    },
+    {
+      "name": "Admin self-escalation, private profile access and unapproved listing writes denied",
+      "result": "passed"
+    },
+    {
+      "name": "Live sign-out and password sign-in; anonymous profile read denied",
+      "result": "passed"
+    },
+    {
+      "name": "Password-reset request, valid reset code, password change and new-password sign-in",
+      "result": "passed"
+    },
+    {
+      "name": "Vendor application accepted; self-approval denied",
+      "result": "passed"
+    },
+    {
+      "name": "Admin client reviews and approves vendor; approved owner can create listing; forged ownership denied",
+      "result": "passed"
+    },
+    {
+      "name": "Owner administrator password sign-in and live admin profile read",
+      "result": "passed"
+    }
+  ],
+  "cleanup": [
+    {
+      "type": "temporary listing",
+      "result": "deleted"
+    },
+    {
+      "type": "temporary account and profile",
+      "result": "deleted"
+    },
+    {
+      "type": "temporary account and profile",
+      "result": "deleted"
+    }
+  ],
+  "status": "passed",
+  "finishedAt": "2026-11-06T15:02:02.705742+00:00",
+  "database": {
+    "id": "(default)",
+    "edition": "STANDARD",
+    "location": "asia-southeast1",
+    "freeTier": true
+  },
+  "rulesSourceCommit": "096b304cf812dff03680da05f308dfca2ef65cc7",
+  "rulesSha256": "fca6f5b13e337875aec26b02972360623b9d58b3a04971df27c5a62726b225d4",
+  "limitations": [
+    "Live tests used Firebase client SDK from Node, not an Android device.",
+    "Password-reset API and code redemption were tested; external mailbox delivery was not tested.",
+    "Listing schema, claims, notifications and impact modules remain separate team workstreams."
+  ]
+}

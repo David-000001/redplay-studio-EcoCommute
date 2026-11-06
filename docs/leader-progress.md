@@ -19,3 +19,10 @@ Do not mark interviews, lecturer approval, tests, code compilation or member con
 - Validation evidence is recorded in [PR #26](https://github.com/David-000001/redplay-studio-foodloop/pull/26) and its CI checks.
 - User confirmed no Firebase project ID or teammate GitHub usernames are available. #24 remains open; teammates can fork and develop locally meanwhile.
 - Remaining leader responsibilities: cloud setup when an account is available, collaborator invitations when usernames arrive, real meeting/approval records, ongoing integration reviews and eventual video/report submission.
+
+## 6 November 2026 live backend
+- Recovered the already registered `um-foodloop` project and Android configuration from earlier work; this supersedes the 4 November note that no project ID was available.
+- Project lead completed Firebase CLI sign-in and selected Singapore. Created the default Standard Firestore database on the free tier and deployed the current rules.
+- Provisioned the owner app administrator with the trusted Admin SDK; verified nine live authentication/authorization check groups and removed all temporary verification users/profiles/listings.
+- Private admin sign-in details and mobile config supplied locally; no credentials or student identifiers committed.
+- See `live-firebase-verification.md` and its JSON evidence for scope and limitations.

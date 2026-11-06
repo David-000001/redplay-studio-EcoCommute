@@ -13,3 +13,9 @@ Keep the accurate original prompts/queries where required by the WIA2007 instruc
 - AI-assisted output: debug emulator bootstrap, synthetic account seeder, Android auth integration coverage, CI improvements, architecture/handoff/delivery documentation.
 - Verification: see the handoff PR and CI runs for actual automated results. Human review by Avijit and the relevant owners is still pending; no human testing or understanding is claimed on their behalf.
 - Human follow-up: read/explain the generated changes, run the documented flow, record corrections and actual individual time.
+
+## 6 November 2026 issue 24
+- Tool: Codex with Firebase CLI, Admin SDK and client SDK. User request: "do this yourself: #24 ? Finish Live Firebase Setup"; user then authorized continuation, completed Google sign-in, and selected "Singapore (asia-southeast1), near UM".
+- Work: inspected existing project/app configuration, created the default database, deployed existing repository rules, provisioned the owner administrator and ran live authentication/authorization tests with temporary users.
+- Automated verification: nine check groups passed; temporary test data cleaned up. See `live-firebase-verification.md`. Android UI against live cloud and external reset-mail delivery were not tested.
+- Human action observed: account sign-in approval and region selection. Independent human code review and other team contributions are not claimed.

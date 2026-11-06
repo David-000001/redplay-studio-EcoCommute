@@ -35,7 +35,7 @@ Open Authentication & Roles. All sample accounts use `FoodLoop-local-2026!`:
 
 These are synthetic local accounts, not real users. Seeding resets these four profiles and passwords; it does not delete other local users. Emulator data is temporary by default. Never use these accounts/passwords in a cloud project. Reset email links appear in the emulator terminal rather than being delivered.
 
-For a UI-only run, `flutter run` shows the deliberate unconfigured-auth state. For actual cloud accounts see [Firebase setup](firebase-setup.md) and issue #24.
+For a UI-only run, `flutter run` shows the deliberate unconfigured-auth state. Live cloud setup for #24 is complete; see [verified cloud setup](live-firebase-verification.md) and obtain the local configuration from Avijit.
 
 ## Your work
 Issue numbers below link to the existing backlog; do not create duplicate tasks.
