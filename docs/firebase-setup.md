@@ -2,12 +2,12 @@
 
 ## Status
 - **Auth application logic, student/vendor/admin UI and Firestore security rules are implemented in code.**
-- No Firebase project has been created/connected through this repository. Live registrations cannot function until a UM FoodLoop project administrator provisions one.
+- **Live setup completed 6 November 2026:** project `um-foodloop`, default Standard Firestore database in Singapore, deployed rules, and a verified owner administrator. See [verification evidence](live-firebase-verification.md). The steps below are for reproducing or maintaining setup, not unfinished prerequisites.
 - Don't upload student IDs, private service-account keys, passwords or contact data to this public repository.
 - The code uses *configurable* Firebase options, not embedded Firebase credentials.
 
 ## Develop before cloud provisioning
-Use the [local emulator setup](team-handoff.md). It supplies only synthetic local accounts and needs no Firebase login. This does not complete issue #24.
+Use the [local emulator setup](team-handoff.md). It supplies only synthetic local accounts and needs no Firebase login. Live setup for #24 is now independently verified; local mode remains useful for isolated development.
 
 ## 1. Create your Firebase project
 1. Visit https://console.firebase.google.com/ and create or select a project under an account the group can administer.

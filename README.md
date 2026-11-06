@@ -41,7 +41,7 @@ RedPlay Studio, Tutorial Group 9; group leader: **Avijit Chandra Dey**. The grou
 - Firebase student account registration, sign-in/sign-out and password reset have been implemented in source code.
 - Vendor approval requests and admin approval UI are backed by restrictive Firestore rules.
 - A debug-only local emulator mode lets the team develop without a cloud project; see the handoff guide.
-- Without local mode, the application **fails closed** until the group's own Firebase project is configured. There are no real accounts or production administrator permissions in this repository.
+- Live development backend `um-foodloop` is configured and verified; see [live Firebase evidence](docs/live-firebase-verification.md). Obtain the ignored local configuration from Avijit. With neither local mode nor cloud configuration, the app still fails closed. Credentials are not in this repository.
 - [Firebase provisioning and deployment guide](docs/firebase-setup.md) · [Firestore rules](firestore.rules) · [Security tests](security/tests/roles.test.cjs)
 
 ## Project documentation
