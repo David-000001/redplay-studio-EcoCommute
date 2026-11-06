@@ -86,4 +86,16 @@ public class NativeFlowTest {
    } finally { repo.signOut(); }
    // The CI emulator process owns and discards all synthetic records at exit.
  }
+ @Test public void administratorUiApprovesPendingVendor() throws Exception {
+   AuthRepository repo=repository();repo.signOut();
+   Tasks.await(repo.signIn("admin@foodloop.test","FoodLoop-local-2026!"),20,TimeUnit.SECONDS);
+   try(ActivityScenario<MainActivity> activity=ActivityScenario.launch(MainActivity.class)) {
+     onView(withId(R.id.accounts)).perform(scrollTo(),click());
+     waitText(R.id.profile_summary,"Local admin\nRole: admin · Vendor status: none");
+     waitText(R.id.vendor_name,"Local pending");
+     onView(withId(R.id.approve)).perform(scrollTo(),click());
+     waitText(R.id.message,"Vendor approved.");
+     assertEquals("vendor",Tasks.await(repo.profile("local-pending").get(),20,TimeUnit.SECONDS).getString("role"));
+   } finally { repo.signOut(); }
+ }
 }
