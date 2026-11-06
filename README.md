@@ -27,7 +27,7 @@ Vendor submits eligible surplus food listing → student browses → student cla
 - Real UM stakeholder interviews, photos, and any claimed environmental outcomes must be documented rather than invented.
 
 ## Current stack
-Flutter/Dart Android app with Firebase Authentication and Firestore. Storage and Cloud Functions remain proposed for the assigned feature workstreams. The code baseline does not establish a recorded team/lecturer stack decision.
+Native **Java + XML Views** Android app in `android/`, built with Android Studio and Gradle, using ConstraintLayout, Material Components, Firebase Authentication and Cloud Firestore. The leader requested this migration on 7 November 2026 to align with the supplied practical examples. Java is a course-aligned choice, not a verified compulsory language. Storage and Cloud Functions remain proposed feature work. See [migration decision](docs/java-migration.md) and [Android setup](docs/mobile-setup.md).
 
 ## Dates
 - Week 1 kickoff: **2–8 Nov 2026**

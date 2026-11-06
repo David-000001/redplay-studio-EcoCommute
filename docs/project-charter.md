@@ -30,7 +30,7 @@ Prototype, test and demonstrate a UM-relevant mobile app that helps participatin
 ## Assumptions/dependencies
 - Lecturer acceptance of the SDG 13.3 framing reported by group leader (2 Nov 2026); written approval record to be attached when available.
 - Participating vendors can be engaged; no vendor partnership is yet confirmed.
-- Stack proposed: Flutter + Firebase, subject to team and lecturer approval.
+- Stack: Java + XML Views in Android Studio with Firebase, selected by the leader on 7 November 2026 to align with the supplied practical examples; not a claim that Java is compulsory.
 - Real user data and institution branding handled only with required permissions.
 
 ## Roles (confirmed by group leader; acceptance records pending attachment)

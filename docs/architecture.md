@@ -1,11 +1,13 @@
 # Architecture and integration contracts
 
 ## Implemented foundation
-Flutter Android is the current repository baseline, with Firebase Auth and Cloud Firestore. This records the code in use, not an invented team vote. Cloud Functions and Storage remain proposed services for feature owners to implement.
+Native Java + XML Views is the current baseline following the leader's 7 November migration request. Android Studio opens `android/`; Groovy Gradle builds it without Flutter or Kotlin application sources. `MainActivity` hosts fragments in a ConstraintLayout. XML layouts use Material Components; the admin application list uses RecyclerView and View Binding.
 
-`main.dart` calls `bootstrapAuth()` once. That initializes cloud services only with supplied local configuration, or connects both services to the fixed `demo-foodloop-auth` project in debug emulator mode. `FoodLoopApp` receives one `AuthRepository`; `AppRoutes` passes it to authentication. Feature screens should receive dependencies through constructors using this same pattern, so widget tests can inject fakes.
+`FoodLoopApplication` initializes one Firebase app/repository. `localDebug` uses fixed local emulator endpoints with a separate package and named Firebase app; `cloudDebug` loads ignored `google-services.json` for the existing package. Missing cloud configuration disables account actions. Only local debug permits cleartext. Firestore uses memory caching to avoid retaining profile records on shared development devices.
 
-Do not initialize Firebase separately inside screens. UI roles control presentation; backend authorization remains mandatory. Keep route names `/`, `/auth`, `/listings`, `/claims`, `/climate`, `/reports` stable. Avijit coordinates route integration. Use feature folders described in the handoff; placeholders are explicit unfinished screens.
+`AuthRepository` owns Firebase operations; `UserProfile` validates names and computes presentation permissions. `AuthFragment` observes auth/profile changes only while started and removes listeners when stopped. Registration creates only student profiles; failed profile creation attempts Auth rollback and signs out. Firebase rules, never button visibility, grant permissions. Errors and in-progress state are visible; passwords are not persisted in view state.
+
+Feature owners add Java packages under `com.example.um_foodloop.features` and XML layouts under `res/layout`. Reuse the application repository; do not initialize another Firebase instance. Preserve navigation route keys `/auth`, `/listings`, `/claims`, `/climate`, `/reports`; Avijit replaces the explicit `ModuleFragment` extension points as features arrive. Those screens do not claim to implement any food/impact workflow.
 
 ## Existing profile contract
 Collection: `profiles/{Firebase Auth UID}` (not `users`). Fields: `displayName` (1?80 characters), `role` (`student`, `vendor`, `admin`), `vendorStatus` (`none`, `pending`, `approved`, `rejected`), `createdAt` (server timestamp).

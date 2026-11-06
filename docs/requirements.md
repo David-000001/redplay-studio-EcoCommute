@@ -20,7 +20,7 @@ Functional requirements are proposed and must be refined after UM stakeholder in
 ## M4 Climate education and impact
 - FR-10 The app shall display a clearly qualified indicative climate impact metric with method/source notes.
 - FR-11 The app shall count verified collected portions and show cumulative student statistics.
-- FR-12 Students shall receive short, source-backed food-waste/climate education and optionally demonstrate comprehension in a brief assessment.
+- FR-12 Students shall complete source-backed food-waste/climate lessons and a short pre/post assessment; the app shall display the change in correct answers without claiming that this alone proves lasting behaviour change. No assessment results are claimed until measured.
 
 ## M5 Alerts and institutional reporting
 - FR-13 Students shall opt in to new-listing notifications for selected UM areas (with pickup reminders where supported).
