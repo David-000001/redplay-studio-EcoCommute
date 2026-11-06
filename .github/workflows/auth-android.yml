@@ -30,7 +30,7 @@ jobs:
       - name: Build, unit tests and lint
         run: |
           chmod +x android/gradlew
-          android/gradlew -p android :app:assembleLocalDebug :app:assembleCloudDebug :app:testLocalDebugUnitTest :app:lintLocalDebug :app:lintCloudDebug
+          android/gradlew -p android :app:assembleLocalDebug :app:assembleLocalDebugAndroidTest :app:assembleCloudDebug :app:testLocalDebugUnitTest :app:lintLocalDebug :app:lintCloudDebug
       - name: Install Firebase test tools
         run: npm install --prefix security --no-audit --no-fund
       - name: Enable KVM
@@ -55,4 +55,3 @@ jobs:
             android/app/build/outputs/apk/local/debug/*.apk
             android/app/build/reports/
           retention-days: 14
-
