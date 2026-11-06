@@ -20,6 +20,9 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -27,7 +30,7 @@ jobs:
       - name: Build, unit tests and lint
         run: |
           chmod +x android/gradlew
-          android/gradlew -p android :app:assembleLocalDebug :app:testLocalDebugUnitTest :app:lintLocalDebug
+          android/gradlew -p android :app:assembleLocalDebug :app:assembleCloudDebug :app:testLocalDebugUnitTest :app:lintLocalDebug :app:lintCloudDebug
       - name: Install Firebase test tools
         run: npm install --prefix security --no-audit --no-fund
       - name: Enable KVM
@@ -52,3 +55,4 @@ jobs:
             android/app/build/outputs/apk/local/debug/*.apk
             android/app/build/reports/
           retention-days: 14
+
