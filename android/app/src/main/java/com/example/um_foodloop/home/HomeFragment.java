@@ -16,8 +16,8 @@ public class HomeFragment extends Fragment {
         FragmentHomeBinding b = FragmentHomeBinding.inflate(inflater, parent, false);
         b.environment.setText(BuildConfig.USE_EMULATORS ? R.string.local_mode : R.string.cloud_mode);
         b.accounts.setOnClickListener(v -> open("/auth"));
-        b.listings.setOnClickListener(v -> open("/listings"));
-        b.claims.setOnClickListener(v -> open("/claims"));
+        b.listings.setOnClickListener(v -> open("/journeys"));
+        b.claims.setOnClickListener(v -> open("/history"));
         b.climate.setOnClickListener(v -> open("/climate"));
         b.reports.setOnClickListener(v -> open("/reports"));
         return b.getRoot();

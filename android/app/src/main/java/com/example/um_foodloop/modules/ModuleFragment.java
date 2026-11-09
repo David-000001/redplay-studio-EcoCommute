@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 import com.example.um_foodloop.R;
 import com.example.um_foodloop.databinding.FragmentModuleBinding;
 
-/** Explicit extension points for the assigned feature owners; no fake food or impact figures. */
+/** Explicit extension points for the assigned feature owners; mobility features in development. */
 public class ModuleFragment extends Fragment {
     public static ModuleFragment forRoute(String route) {
         ModuleFragment f = new ModuleFragment();
@@ -20,8 +20,8 @@ public class ModuleFragment extends Fragment {
         String route = requireArguments().getString("route", "");
         int title, description;
         switch (route) {
-            case "/listings": title=R.string.listings; description=R.string.listings_pending; break;
-            case "/claims": title=R.string.claims; description=R.string.claims_pending; break;
+            case "/journeys": title=R.string.listings; description=R.string.listings_pending; break;
+            case "/history": title=R.string.claims; description=R.string.claims_pending; break;
             case "/climate": title=R.string.climate; description=R.string.climate_pending; break;
             case "/reports": title=R.string.reports; description=R.string.reports_pending; break;
             default: title=R.string.unavailable; description=R.string.module_pending;

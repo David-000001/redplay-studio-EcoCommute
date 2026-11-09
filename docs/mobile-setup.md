@@ -27,7 +27,7 @@ With the Android emulator and seeded Firebase emulators running:
 ```powershell
 android\gradlew.bat -p android :app:connectedLocalDebugAndroidTest
 ```
-The Java tests cover navigation/rotation, account UI sign-in/name editing/sign-out, and native Firebase registration/reset/vendor approval with rejected privilege escalation. The separate Node security suite remains at `security/` and is run with `npm --prefix security run verify` (stop manually running Firebase emulators first).
+The Java tests cover navigation/rotation, account UI sign-in/name editing/sign-out, and native Firebase registration/reset and legacy role compatibility with rejected privilege escalation. The separate Node security suite remains at `security/` and is run with `npm --prefix security run verify` (stop manually running Firebase emulators first).
 
 CI builds a local APK, runs unit tests/lint and Android instrumentation against disposable Firebase emulators. Its `foodloop-native-local-development` artifact contains the APK and reports. No cloud credentials are needed in CI.
 

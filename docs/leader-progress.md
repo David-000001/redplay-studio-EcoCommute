@@ -30,3 +30,8 @@ Do not mark interviews, lecturer approval, tests, code compilation or member con
 
 ## 7 November — native Android migration
 Leader requested Java + XML to match the supplied course practicals. Ported account/role features and module navigation, replaced Flutter build/CI, preserved the existing Firebase project and rules, and updated handoff paths. See [migration scope](java-migration.md). Full feature completion remains dependent on teammate implementations and real testing evidence.
+
+
+## 10 November 2026
+
+Updated the Android presentation, active planning documents and backlog for UM EcoCommute. The earlier account verification remains historical evidence.

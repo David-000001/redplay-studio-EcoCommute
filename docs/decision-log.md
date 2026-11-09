@@ -18,3 +18,8 @@ The project lead selected Singapore (`asia-southeast1`). The existing app uses t
 
 ## 7 November 2026 — Java and XML Views
 The leader requested migration from Flutter to Java/XML in Android Studio based on the supplied practical review. This is a course-aligned choice, not a claim Java is compulsory. Preserve project um-foodloop and profiles contract. Historical Flutter implementation remains at cea7f8a; active development and CI now use native Android.
+
+
+## 10 November 2026
+
+The leader requested the UM EcoCommute title and campus mobility scope. This supersedes the earlier product name and food workflow. Keep the existing Firebase identifiers for compatibility.

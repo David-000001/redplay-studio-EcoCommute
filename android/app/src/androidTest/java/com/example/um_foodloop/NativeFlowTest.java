@@ -50,12 +50,12 @@ public class NativeFlowTest {
      onView(withId(R.id.email)).perform(scrollTo(),replaceText("student@foodloop.test"));
      onView(withId(R.id.password)).perform(scrollTo(),replaceText("FoodLoop-local-2026!"),closeSoftKeyboard());
      onView(withId(R.id.sign_in)).perform(scrollTo(),click());
-     waitText(R.id.profile_summary,"Local student\nRole: student · Vendor status: none");
+     waitText(R.id.profile_summary,"Local student\nRole: student");
      onView(withId(R.id.profile_name)).perform(scrollTo(),replaceText("Native student"),closeSoftKeyboard());
      onView(withId(R.id.save_name)).perform(scrollTo(),click());
      waitText(R.id.message,"Display name saved.");
      activity.recreate();
-     waitText(R.id.profile_summary,"Native student\nRole: student · Vendor status: none");
+     waitText(R.id.profile_summary,"Native student\nRole: student");
      onView(withId(R.id.sign_out)).perform(scrollTo(),click());
      onView(withId(R.id.sign_in)).perform(scrollTo()).check(matches(isDisplayed()));
    } finally { repo.signOut(); }
@@ -85,17 +85,5 @@ public class NativeFlowTest {
      assertEquals("approved",Tasks.await(repo.profile(uid).get(),20,TimeUnit.SECONDS).getString("vendorStatus"));
    } finally { repo.signOut(); }
    // The CI emulator process owns and discards all synthetic records at exit.
- }
- @Test public void administratorUiApprovesPendingVendor() throws Exception {
-   AuthRepository repo=repository();repo.signOut();
-   Tasks.await(repo.signIn("admin@foodloop.test","FoodLoop-local-2026!"),20,TimeUnit.SECONDS);
-   try(ActivityScenario<MainActivity> activity=ActivityScenario.launch(MainActivity.class)) {
-     onView(withId(R.id.accounts)).perform(scrollTo(),click());
-     waitText(R.id.profile_summary,"Local admin\nRole: admin · Vendor status: none");
-     waitText(R.id.vendor_name,"Local pending");
-     onView(withId(R.id.approve)).perform(scrollTo(),click());
-     waitText(R.id.message,"Vendor approved.");
-     assertEquals("vendor",Tasks.await(repo.profile("local-pending").get(),20,TimeUnit.SECONDS).getString("role"));
-   } finally { repo.signOut(); }
  }
 }

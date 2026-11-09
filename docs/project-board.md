@@ -6,4 +6,4 @@ Columns: **Backlog → Todo → In Progress → Review → Done**.
 
 Rules: one accountable workstream owner per issue; acceptance criteria checked before closing; each implementation task uses a feature branch and reviewed PR; note blockers in issue comments; decisions documented in the repository.
 
-**Priority:** lecturer/SDG approval; stakeholder evidence; development foundation; claim transaction correctness; climate education methodology; safety and privacy; integrated tests; demo/report.
+**Priority:** revised-topic confirmation, commuter discovery, private journey records, calculation fixtures, climate learning, anonymized reporting and integration tests.

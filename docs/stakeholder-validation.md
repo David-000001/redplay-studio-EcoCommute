@@ -1,11 +1,5 @@
-# UM stakeholder discovery plan
+# Campus mobility discovery
 
-**Do not claim these interviews have taken place until evidence is collected.**
+Ask UM student commuters which modes they use, how they estimate distance, what changes would make a lower-emission option practical, and whether a same-distance comparison helps them choose. Invite willing transport or sustainability staff to review terminology, available data and reporting needs.
 
-Students: How often would you collect surplus food? What pickup time and distance is convenient? What allergen/food safety information is necessary? Do climate insights help explain the climate-food link?
-
-Vendors/event organizers: Does safe unsold food remain near closing? Are redistribution and recording feasible? What details, restrictions and labor/time burdens matter? Would a simplified posting workflow help?
-
-Potential UM administrators: What aggregates, audit trail, reporting cadence and privacy safeguards would be useful? Would the dashboard improve monitoring capacity?
-
-Document dates, anonymized responses, consent, sampling limits and design changes. Do not upload names, raw surveys or photographs without permission.
+Record consent, participant count, method, date, anonymized themes and a design decision for each finding. Avoid collecting precise home addresses, student IDs or identifiable routes. Mark untested assumptions as hypotheses.

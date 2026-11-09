@@ -1,35 +1,36 @@
-# Initial requirements register (draft)
+# UM EcoCommute requirements
 
-Functional requirements are proposed and must be refined after UM stakeholder interviews.
+## M1 Accounts and preferences
 
-## M1 Authentication and roles
-- FR-01 Users shall sign in with appropriately authorized student/vendor/admin access.
-- FR-02 Vendors shall submit profile and verification details for authorized approval before posting.
-- FR-03 Users shall manage profile, password recovery and opt-in notification settings.
+- FR-01 Register and sign in as a student.
+- FR-02 Recover access and edit the display name.
+- FR-03 Manage opt-in reminders and sign out.
 
-## M2 Listing management
-- FR-04 Approved vendors shall post eligible food with photo, food type, allergens, quantity, estimated weight, pickup location and window.
-- FR-05 Vendors shall edit or withdraw their own listing, respecting already claimed portions.
-- FR-06 The app shall hide expired or sold-out listings from active browsing.
+## M2 Journey logging
 
-## M3 Browse, claim and collect
-- FR-07 Students shall browse/filter active listings by location, availability and food type.
-- FR-08 Students shall reserve available portions; the system shall prevent over-allocation and create a unique collection token.
-- FR-09 Vendors shall verify collection, update stock and record a completed pickup exactly once.
+- FR-04 Enter trip date, mode and distance in kilometres.
+- FR-05 Edit an owned journey and validate a positive finite distance.
+- FR-06 Delete an owned journey and handle retries without duplicate records.
 
-## M4 Climate education and impact
-- FR-10 The app shall display a clearly qualified indicative climate impact metric with method/source notes.
-- FR-11 The app shall count verified collected portions and show cumulative student statistics.
-- FR-12 Students shall complete source-backed food-waste/climate lessons and a short pre/post assessment; the app shall display the change in correct answers without claiming that this alone proves lasting behaviour change. No assessment results are claimed until measured.
+## M3 Comparison and personal history
 
-## M5 Alerts and institutional reporting
-- FR-13 Students shall opt in to new-listing notifications for selected UM areas (with pickup reminders where supported).
-- FR-14 Authorized administrators shall view aggregate food recovery and climate metrics by date and campus area.
-- FR-15 Administrators shall export anonymized aggregate CSV reports.
+- FR-07 Filter personal trip history by period and mode.
+- FR-08 Compare modes at equal distance using versioned factors.
+- FR-09 Show personal distance and estimated emissions trends; recompute totals after edits or deletions.
 
-## Non-functional requirements (two)
-- NFR-01 Performance: 95% of browse-and-claim operations complete within 3 seconds under a reproducible 100-concurrent-user test workload on the agreed environment (measurement required).
-- NFR-02 Privacy/security: a tested role-based access policy must deny cross-role modification of protected resources; no private student data in aggregate reports (security tests required).
+## M4 Climate awareness
 
-## Critical acceptance
-No climate-impact credit until vendor-verified collection. CO₂e estimates are not automatically emissions avoided.
+- FR-10 Read a sourced lesson connecting mobility choices to climate mitigation.
+- FR-11 Take a quiz and view score and answer explanations.
+- FR-12 Join a commuting challenge and review personal progress.
+
+## M5 Administration and reporting
+
+- FR-13 Restrict aggregate reporting to provisioned administrators.
+- FR-14 Filter anonymized totals by period and transport mode, suppressing small groups.
+- FR-15 Export the same permitted aggregates as CSV without identifiers or precise routes.
+
+## Non-functional requirements
+
+- NFR-01 Target 95% of trip-save and history operations within three seconds in a documented 100-concurrent-user workload. Record device, network, dataset and measured results.
+- NFR-02 Deny unauthorized access to personal trips, quiz progress and privileged reporting. Verify permissions with two student accounts and an administrator.
