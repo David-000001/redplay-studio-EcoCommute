@@ -1,7 +1,25 @@
 # UM EcoCommute team handoff
 
-Open `android/` in Android Studio and follow [native setup](mobile-setup.md). Start Firebase Authentication and Firestore emulators, seed the fixtures and run `localDebug`. Use `student@foodloop.test` or `admin@foodloop.test` with local fixture password `FoodLoop-local-2026!`. Obtain cloud configuration privately from Avijit if needed.
+**RedPlay Studio · WIA2007 · Tutorial Group 9**  
+**Lead:** Avijit Chandra Dey
 
-## What to build
+Start with [Android Studio setup](mobile-setup.md). Clone [the repository](https://github.com/David-000001/redplay-studio-foodloop), open the `android/` folder in Android Studio, and select `localDebug`. From the repository root run `npm install --prefix security`, then `npm --prefix security run emulators`. In another terminal run `npm --prefix security run seed`. Launch the app on an Android emulator. Sign in with the local fixture `student@foodloop.test` and password `FoodLoop-local-2026!`. The account and navigation screens are the starting point. The mobility screens are ready for assigned feature work.
 
-Start with the issue numbers under [your workstream](team-roles.md). HAN and Zhou should agree on the trip fields before implementing entry. Riptanto and Rasha should agree on factor versions, totals and anonymization before implementing reports. Maliha should use the same records for student history. Submit a feature PR with tests, screenshots and actual contribution hours. Account access is the existing foundation; the mobility screens are development entry points.
+## First assignments
+
+| Member | Start here | First result for the team |
+|---|---|---|
+| Maliha Chowdhury | [#3 commuter research](https://github.com/David-000001/redplay-studio-foodloop/issues/3) and [#5 history UX](https://github.com/David-000001/redplay-studio-foodloop/issues/5) | Draft the commuter questions and history/filter wireframe. Use Zhou’s trip fields for [#11](https://github.com/David-000001/redplay-studio-foodloop/issues/11). |
+| HAN YUNUO | [#6 journey form](https://github.com/David-000001/redplay-studio-foodloop/issues/6) | Sketch date, mode and distance entry with validation. Coordinate with Zhou before implementing [#10](https://github.com/David-000001/redplay-studio-foodloop/issues/10). Run mobility interviews under [#4](https://github.com/David-000001/redplay-studio-foodloop/issues/4). |
+| ZHOU RUILIN | [#7 schema and access rules](https://github.com/David-000001/redplay-studio-foodloop/issues/7) | Post the trip fields, units and owner-only access contract on the issue so HAN, Maliha and Riptanto can use it. Verify access and retries under [#18](https://github.com/David-000001/redplay-studio-foodloop/issues/18). |
+| Riptanto Athaillah Zacky Putra | [#12 emissions comparisons](https://github.com/David-000001/redplay-studio-foodloop/issues/12) | Bring one sourced mode factor with its units and a worked example at a fixed distance. Coordinate factor versions with Zhou and Rasha, then build [#13 trends](https://github.com/David-000001/redplay-studio-foodloop/issues/13). |
+| Rasha Kultsum Mahdiyah | [#14 climate learning](https://github.com/David-000001/redplay-studio-foodloop/issues/14) | Draft one cited commuting lesson and a quiz with answer explanations. Subsequent work covers [reminders](https://github.com/David-000001/redplay-studio-foodloop/issues/15), [aggregate reporting](https://github.com/David-000001/redplay-studio-foodloop/issues/16) and [testing](https://github.com/David-000001/redplay-studio-foodloop/issues/19). |
+| Avijit Chandra Dey | Integration and review | Review the trip contract and member PRs; assemble the first student sign-in → journey entry → personal history demo. Collect evidence for [the video](https://github.com/David-000001/redplay-studio-foodloop/issues/20) and [the report](https://github.com/David-000001/redplay-studio-foodloop/issues/22). |
+
+## Returning work
+
+1. Reply to the team email with your GitHub username, first issue and local sign-in result. If setup fails, include the command and error text with credentials removed.
+2. Branch from current `main` or use a fork if you have read-only access. Open a PR against this repository’s `main`. Link the issue and describe the change, how you tested it and any remaining limitations. Include a screenshot for visible changes.
+3. Record actual contribution hours and any AI assistance. Keep participant identities, private Firebase configuration and personal credentials out of GitHub.
+
+The first proposed integration checkpoint is **22 November 2026** for an owned journey created by HAN’s form and visible in Maliha’s history. Zhou owns the shared contract. See the [requirements](requirements.md), [test plan](testing-plan.md) and [delivery dates](delivery-plan.md).
