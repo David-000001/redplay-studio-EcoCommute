@@ -6,7 +6,7 @@ UM students log a commute, compare transport modes for the same distance and see
 
 ## Development status
 
-The Java/XML Android foundation, Firebase account access and local emulator workflow are available. Journey logging, emissions comparisons, learning and aggregate reporting are planned modules. The legacy repository URL, Firebase project ID and Android package are retained for existing clones, accounts and configuration. Previous Firebase verification covers the account foundation only.
+The Java/XML Android foundation, Firebase account access and local emulator workflow are available. Journey logging, emissions comparisons, learning and aggregate reporting are planned modules. The source namespace is `com.example.um_ecocommute`. The registered Android application ID and Firebase project ID are retained for existing accounts and configuration. Previous Firebase verification covers the account foundation only.
 
 ## Start here
 

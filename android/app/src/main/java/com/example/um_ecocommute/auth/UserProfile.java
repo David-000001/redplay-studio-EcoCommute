@@ -1,4 +1,4 @@
-package com.example.um_foodloop.auth;
+package com.example.um_ecocommute.auth;
 
 import java.util.Map;
 

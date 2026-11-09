@@ -1,7 +1,7 @@
-package com.example.um_foodloop;
+package com.example.um_ecocommute;
 
 import android.app.Application;
-import com.example.um_foodloop.auth.AuthRepository;
+import com.example.um_ecocommute.auth.AuthRepository;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.MemoryCacheSettings;
 
-public class FoodLoopApplication extends Application {
+public class EcoCommuteApplication extends Application {
     private AuthRepository repository;
     @Override public void onCreate() {
         super.onCreate();

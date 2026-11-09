@@ -1,4 +1,4 @@
-# Contributing to UM FoodLoop
+# Contributing to UM EcoCommute
 
 ## Branch / PR rules
 1. Open or claim a GitHub Issue before beginning implementation.

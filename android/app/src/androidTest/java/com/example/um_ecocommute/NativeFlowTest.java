@@ -1,10 +1,10 @@
-package com.example.um_foodloop;
+package com.example.um_ecocommute;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.espresso.NoMatchingViewException;
-import com.example.um_foodloop.auth.AuthRepository;
+import com.example.um_ecocommute.auth.AuthRepository;
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import org.junit.Test;
@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 public class NativeFlowTest {
  private AuthRepository repository() {
    assertTrue("Tests must use localDebug",BuildConfig.USE_EMULATORS);
-   return ((FoodLoopApplication)ApplicationProvider.getApplicationContext()).repository();
+   return ((EcoCommuteApplication)ApplicationProvider.getApplicationContext()).repository();
  }
  private void waitText(int id, String text) throws Exception {
    long deadline=System.currentTimeMillis()+20000;

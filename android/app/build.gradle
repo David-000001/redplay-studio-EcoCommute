@@ -2,7 +2,7 @@ plugins { id 'com.android.application' }
 // Cloud configuration is distributed privately by the project lead.
 if (file('google-services.json').exists()) { apply plugin: 'com.google.gms.google-services' }
 android {
-    namespace 'com.example.um_foodloop'
+    namespace 'com.example.um_ecocommute'
     compileSdk 37
     defaultConfig {
         applicationId 'com.example.um_foodloop'

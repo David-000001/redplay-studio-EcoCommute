@@ -1,4 +1,4 @@
-package com.example.um_foodloop.auth;
+package com.example.um_ecocommute.auth;
 import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;

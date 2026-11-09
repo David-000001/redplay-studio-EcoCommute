@@ -1,4 +1,4 @@
-package com.example.um_foodloop;
+package com.example.um_ecocommute;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,10 +6,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
-import com.example.um_foodloop.auth.AuthFragment;
-import com.example.um_foodloop.databinding.ActivityMainBinding;
-import com.example.um_foodloop.home.HomeFragment;
-import com.example.um_foodloop.modules.ModuleFragment;
+import com.example.um_ecocommute.auth.AuthFragment;
+import com.example.um_ecocommute.databinding.ActivityMainBinding;
+import com.example.um_ecocommute.home.HomeFragment;
+import com.example.um_ecocommute.modules.ModuleFragment;
 
 public class MainActivity extends AppCompatActivity {
     @Override public void onCreate(Bundle state) {

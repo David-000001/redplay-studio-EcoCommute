@@ -1,4 +1,4 @@
-package com.example.um_foodloop.modules;
+package com.example.um_ecocommute.modules;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.um_foodloop.R;
-import com.example.um_foodloop.databinding.FragmentModuleBinding;
+import com.example.um_ecocommute.R;
+import com.example.um_ecocommute.databinding.FragmentModuleBinding;
 
 /** Explicit extension points for the assigned feature owners; mobility features in development. */
 public class ModuleFragment extends Fragment {

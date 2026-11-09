@@ -1,4 +1,4 @@
-package com.example.um_foodloop.home;
+package com.example.um_ecocommute.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.um_foodloop.BuildConfig;
-import com.example.um_foodloop.MainActivity;
-import com.example.um_foodloop.R;
-import com.example.um_foodloop.databinding.FragmentHomeBinding;
+import com.example.um_ecocommute.BuildConfig;
+import com.example.um_ecocommute.MainActivity;
+import com.example.um_ecocommute.R;
+import com.example.um_ecocommute.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup parent, Bundle state) {

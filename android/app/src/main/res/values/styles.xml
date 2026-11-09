@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.FoodLoop" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.EcoCommute" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">#176B49</item>
         <item name="colorOnPrimary">#FFFFFF</item>
         <item name="colorSecondary">#52634F</item>

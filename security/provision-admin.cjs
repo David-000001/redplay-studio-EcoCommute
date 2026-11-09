@@ -17,8 +17,8 @@ async function main() {
   const ref = getFirestore().collection('profiles').doc(uid);
   const old = await ref.get();
   await ref.set({
-    displayName: old.exists ? (old.get('displayName') || 'UM FoodLoop Administrator')
-      : 'UM FoodLoop Administrator',
+    displayName: old.exists ? (old.get('displayName') || 'UM EcoCommute Administrator')
+      : 'UM EcoCommute Administrator',
     role: 'admin',
     vendorStatus: 'none',
     createdAt: old.exists ? old.get('createdAt') : FieldValue.serverTimestamp(),

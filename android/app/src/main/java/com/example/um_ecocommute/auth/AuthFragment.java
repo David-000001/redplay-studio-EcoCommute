@@ -1,4 +1,4 @@
-package com.example.um_foodloop.auth;
+package com.example.um_ecocommute.auth;
 
 import android.os.Bundle;
 import android.util.Patterns;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.um_foodloop.FoodLoopApplication;
-import com.example.um_foodloop.R;
-import com.example.um_foodloop.databinding.FragmentAuthBinding;
+import com.example.um_ecocommute.EcoCommuteApplication;
+import com.example.um_ecocommute.R;
+import com.example.um_ecocommute.databinding.FragmentAuthBinding;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +25,7 @@ public class AuthFragment extends Fragment {
 
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup parent, Bundle state) {
         binding = FragmentAuthBinding.inflate(inflater, parent, false);
-        repository = ((FoodLoopApplication) requireActivity().getApplication()).repository();
+        repository = ((EcoCommuteApplication) requireActivity().getApplication()).repository();
         binding.back.setOnClickListener(v -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
         binding.signIn.setOnClickListener(v -> {
             if (validEmail() && validPassword(false)) run(repository.signIn(value(binding.email), value(binding.password)), R.string.signed_in, R.string.auth_failed);
