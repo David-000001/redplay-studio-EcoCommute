@@ -20,8 +20,8 @@ public class ModuleFragment extends Fragment {
         String route = requireArguments().getString("route", "");
         int title, description;
         switch (route) {
-            case "/journeys": title=R.string.listings; description=R.string.listings_pending; break;
-            case "/history": title=R.string.claims; description=R.string.claims_pending; break;
+            case "/journeys": title=R.string.journeys; description=R.string.journeys_pending; break;
+            case "/history": title=R.string.history; description=R.string.history_pending; break;
             case "/climate": title=R.string.climate; description=R.string.climate_pending; break;
             case "/reports": title=R.string.reports; description=R.string.reports_pending; break;
             default: title=R.string.unavailable; description=R.string.module_pending;

@@ -35,3 +35,9 @@ Leader requested Java + XML to match the supplied course practicals. Ported acco
 ## 10 November 2026
 
 Updated the Android presentation, active planning documents and backlog for UM EcoCommute. The earlier account verification remains historical evidence.
+
+## EcoCommute handoff and remaining leader work · 10 November 2026
+
+The team handoff was sent to the five members. The Android and Firestore checks passed for the renamed source tree. Firebase provisioning is recorded under closed issue #24. The two open issues assigned to Avijit are #20 (demo) and #22 (report and AI log).
+
+Before integration, record the lecturer’s decision on the revised topic, collect member GitHub usernames and local sign-in confirmations, and archive actual kickoff minutes and approval evidence where available. Review Zhou’s trip contract and the first feature PRs. The proposed 22 November checkpoint is a student signing in, entering a journey and finding it in their private history. See the [delivery plan](delivery-plan.md) for later dates.

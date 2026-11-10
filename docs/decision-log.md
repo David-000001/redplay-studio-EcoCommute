@@ -1,8 +1,10 @@
 # Project decision log
+The table records the original kickoff. The current project is UM EcoCommute under SDG 13.3. Revised-topic approval is awaiting evidence. See the [current charter](project-charter.md).
+
 | Ref | Proposal | Status |
 |---|---|---|
 | D-01 | SDG 13.3 primary; 12.3 secondary | Lecturer approved, **as reported by leader on 2 Nov 2026**; approval correspondence not attached |
-| D-02 | App named UM FoodLoop | Provisional |
+| D-02 | App named UM FoodLoop | Superseded by UM EcoCommute on 10 November |
 | D-03 | Java + XML for Android | Leader requested migration on 7 Nov; replaces the provisional Flutter scaffold |
 | D-04 | Firebase Authentication/Firestore/Storage | Auth and Firestore provisioned and verified 6 Nov; Storage remains proposed |
 | D-05 | Climate footprint is indicative, not verified avoided emissions | Proposed methodology |

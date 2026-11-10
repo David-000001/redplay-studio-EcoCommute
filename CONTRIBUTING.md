@@ -2,7 +2,7 @@
 
 ## Branch / PR rules
 1. Open or claim a GitHub Issue before beginning implementation.
-2. Create a descriptive branch such as `feat/vendor-listings` or `docs/climate-method`.
+2. Create a descriptive branch such as `feat/journey-entry` or `docs/climate-method`.
 3. Commit small, comprehensible changes; never commit credentials, raw student data or unconsented images.
 4. Open a PR describing issue link, design decision, steps to test, screenshots (where relevant), and any AI assistance.
 5. Request peer review; reviewer checks security, correctness, tests and accessibility before merge.

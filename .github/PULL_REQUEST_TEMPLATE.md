@@ -12,6 +12,6 @@
 
 ## Reviewer checklist
 - [ ] Functional behavior checked
-- [ ] No secrets or private student/vendor data
+- [ ] No secrets or private student, journey or survey data
 - [ ] Tests or manual evidence provided
 - [ ] Documentation/AI log updated

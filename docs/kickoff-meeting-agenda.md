@@ -1,4 +1,6 @@
 # Kickoff meeting agenda — RedPlay Studio
+
+> Historical record of the earlier FoodLoop project. For current EcoCommute assignments and acceptance criteria, use the [team handoff](team-handoff.md) and [requirements](requirements.md).
 **Chair:** Avijit Chandra Dey · WIA2007 Tutorial Group 9
 **Planned duration:** 45 minutes · **Actual meeting date/time:** not supplied (leader confirmed completion on 2 Nov 2026)
 

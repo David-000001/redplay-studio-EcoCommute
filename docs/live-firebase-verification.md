@@ -1,5 +1,7 @@
 # Live Firebase verification
 
+> Historical record of the earlier FoodLoop project. For current EcoCommute assignments and acceptance criteria, use the [team handoff](team-handoff.md) and [requirements](requirements.md).
+
 Completed 6 November 2026 for issue #24. These results concern the live development backend, not the local emulators.
 
 ## Provisioned resources

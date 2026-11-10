@@ -1,5 +1,7 @@
 # Java/XML migration — 7 November 2026
 
+> Historical record of the earlier FoodLoop project. For current EcoCommute assignments and acceptance criteria, use the [team handoff](team-handoff.md) and [requirements](requirements.md).
+
 ## Decision and source boundaries
 Avijit requested a native Java/XML implementation after supplying a course review: Practical 4 describes `.java` and `View.OnClickListener`; Practical 3 describes `res/layout/activity_main.xml` and ConstraintLayout. The supplied review says the 2026/2027 brief does not mandate Java or Kotlin and the practical handouts show 2025/2026. This migration aligns with those examples; it does not invent a lecturer mandate or claim a fresh inspection of the private Spectrum course.
 

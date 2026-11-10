@@ -28,3 +28,6 @@ Tool: Codex. User request: modify FoodLoop to Java/XML in Android Studio to matc
 ## 10 November 2026
 
 ChatGPT assisted the leader with the topic change to UM EcoCommute, including Android presentation, scope, requirements and backlog. Team review and feature implementation remain pending.
+
+
+10 November 2026: ChatGPT cross-checked repository files, the issue tracker and the revised charter. Changes corrected contributor instructions, clarified the scope of historical Firebase evidence, aligned Android journey/history resource names and removed unused Flutter launcher images. Team review remains pending.
